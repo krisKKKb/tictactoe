@@ -50,9 +50,9 @@ cellDivs.forEach(element => {
             } else {
                 gameOver = true
             }
-            if (gameboard[1][0] == 'x' && gameboard[1][1] == 'x' && gameboard[1][2] == 'x'){
+            if (gameboard[1][0] == 'x' && gameboard[1][1] == 'x' && gameboard[1][2] == 'x') {
 
-            }else {
+            } else {
                 gameOver = true
             }
             if (gameboard[2][0] == 'x' && gameboard[2][1] == 'x' && gameboard[2][2] == 'x') {
@@ -99,24 +99,30 @@ cellDivs.forEach(element => {
 });
 
 function GetEmptyCell() {
-    x = Math.floor(Math.random() * 3 )
-    y = Math.floor(Math.random() * 3 )
+    x = Math.floor(Math.random() * 3)
+    y = Math.floor(Math.random() * 3)
     do {
         x = 0 - 2
         y = 0 - 2
     } while (gameboard[x][y]);
-        return[x, y]
+    return [x, y]
 
 }
 
 function isGameOver() {
-    for ( let i = 0; i < 3; i++){
-        if ( gameboard[i][0] == gameboard[i][1] && gameboard[i][1] == gameboard[i][2] && gameboard[i][0] != '_') {
+    for (let i = 0; i < 3; i++) {
+        if (gameboard[i][0] == gameboard[i][1] && gameboard[i][1] == gameboard[i][2] && gameboard[i][0] != '_') {
             return true
         }
-        if ( gameboard[0][i] == gameboard[0][i] && gameboard[0][i] == gameboard[0][i] && gameboard[0][i] != '_') {
+        if (gameboard[0][i] == gameboard[1][i] && gameboard[1][1] == gameboard[2][i] && gameboard[0][i] != '_') {
             return true
         }
+    }
+    if (gameboard[0][0] == gameboard[1][1] && gameboard[1][1] == gameboard[2][2] && gameboard[0][0] != '_') {
+        return true
+    }
+    if (gameboard[0][2] == gameboard[1][1] && gameboard[1][1] == gameboard[2][0] && gameboard[2][0] != '_') {
+        return true
     }
     return false
 }
